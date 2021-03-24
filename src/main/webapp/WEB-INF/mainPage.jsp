@@ -13,14 +13,14 @@
 <div class="container" align="center">
 
 
-<%--    <c:if test="${name != null}">--%>
-<%--        <b>Hello, ${name}!</b>--%>
-<%--    </c:if>--%>
-<%--    <c:if test="${errorMessage != null}">--%>
-<%--        <div style="color: red">--%>
-<%--                ${errorMessage}--%>
-<%--        </div>--%>
-<%--    </c:if>--%>
+    <c:if test="${name != null}">
+        <b>Hello, ${name}!</b>
+    </c:if>
+    <c:if test="${errorMessage != null}">
+        <div style="color: red">
+                ${errorMessage}
+        </div>
+    </c:if>
 </div>
 
 </body>
