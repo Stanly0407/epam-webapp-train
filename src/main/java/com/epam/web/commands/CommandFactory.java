@@ -1,6 +1,6 @@
-package com.epam.web.command;
+package com.epam.web.commands;
 
-import com.epam.web.service.UserDao;
+import com.epam.web.dao.DaoHelperFactory;
 import com.epam.web.service.UserService;
 
 public class CommandFactory {
@@ -11,7 +11,8 @@ public class CommandFactory {
     public Command create(String type) {
         switch (type) {
             case LOGIN_COMMAND:
-                return new LoginCommand(new UserService(new UserDao()));
+                return new LoginCommand(new UserService(new DaoHelperFactory()));
+            //return new LoginCommand(new UserService(new UserDaoImpl()));
             case SHOW_MAIN_PAGE_COMMAND:
                 return new ShowPageCommand("/WEB-INF/mainPage.jsp");
             default:

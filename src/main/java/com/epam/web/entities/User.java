@@ -1,42 +1,47 @@
 package com.epam.web.entities;
 
-public class User {
+public class User implements Entity{
 
-    private long id;
-    private String email;
+    public static final String TABLE = "user";
+    public static final String ID = "id";
+    public static final String LOGIN = "login";
+    public static final String PASSWORD = "password";
+    public static final String NAME= "name";
+    public static final String LASTNAME= "lastname";
+    public static final String ROLE= "role";
+
+    private Long id;
+    private String login;
     private String password;
     private String name;
     private String lastname;
     private Role role;
 
-    public User(long id, String name) {
+    public User(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public User(long id, String email, String password, String name, String lastname, Role role) {
+    public User(Long id, String login, String password, String name, String lastname, Role role) {
         this.id = id;
-        this.email = email;
+        this.login = login;
         this.password = password;
         this.name = name;
         this.lastname = lastname;
         this.role = role;
     }
 
-    public long getId() {
+    @Override
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getLogin() {
+        return login;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
@@ -71,8 +76,15 @@ public class User {
         this.role = role;
     }
 
-    private enum Role{
-        ADMIN, CUSTOMER
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", role=" + role +
+                '}';
     }
-
 }

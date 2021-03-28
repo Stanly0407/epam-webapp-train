@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=utf-8"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
@@ -12,15 +12,8 @@
 
 <div class="container" align="center">
 
+        <b style="color: aliceblue">Hello, ${name}!</b>
 
-    <c:if test="${name != null}">
-        <b>Hello, ${name}!</b>
-    </c:if>
-    <c:if test="${errorMessage != null}">
-        <div style="color: red">
-                ${errorMessage}
-        </div>
-    </c:if>
 </div>
 
 </body>

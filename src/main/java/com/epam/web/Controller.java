@@ -1,8 +1,11 @@
 package com.epam.web;
 
-import com.epam.web.command.Command;
-import com.epam.web.command.CommandFactory;
-import com.epam.web.command.CommandResult;
+import com.epam.web.commands.Command;
+import com.epam.web.commands.CommandFactory;
+import com.epam.web.commands.CommandResult;
+import com.epam.web.exceptions.ServiceException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class Controller extends HttpServlet {
-
+    private static final Logger LOGGER = LogManager.getLogger(Controller.class);
     private static final String PARAMETER_COMMAND = "command";
 
     private CommandFactory commandFactory = new CommandFactory();
@@ -37,8 +40,10 @@ public class Controller extends HttpServlet {
             CommandResult result = command.execute(request, response);
             page = result.getPage();
             isRedirect = result.isRedirect();
-        } catch (Exception e){
-            request.setAttribute("errorMessage", e.getMessage());
+            LOGGER.debug("page = " + page + "    =======     " + "");
+        } catch (ServiceException e){
+            LOGGER.debug("SQLException -- " + e + " ---" + e.fillInStackTrace() );
+            request.setAttribute("errorMessage ----", e.getMessage());
             page = "/error.jsp";
         }
 
@@ -57,6 +62,7 @@ public class Controller extends HttpServlet {
 
     public void redirect(HttpServletRequest request, HttpServletResponse response, String page) throws IOException {
         response.sendRedirect(request.getContextPath() + page);
+
     }
 
 }

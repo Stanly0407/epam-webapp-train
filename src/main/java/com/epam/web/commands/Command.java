@@ -1,4 +1,4 @@
-package com.epam.web.command;
+package com.epam.web.commands;
 
 import com.epam.web.exceptions.ServiceException;
 

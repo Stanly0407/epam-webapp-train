@@ -10,11 +10,9 @@
 
 <div class="container-login">
     <form action="/epam-first-web/controller?command=login" method="post">
-<%--    <form action="/epam-first-web/controller" method="post">--%>
-<%--        <input type="hidden" name="command" value="login"/>--%>
 
-        <div class="common-label"><label for="username">Username</label></div>
-        <input class="common-input" type="text" id="username" placeholder="Enter Username" name="username" required/>
+        <div class="common-label"><label for="login">Login</label></div>
+        <input class="common-input" type="text" id="login" placeholder="Enter Login" name="login" required/>
         <br/><br/>
 
         <div class="common-label"><label for="password">Password</label></div>

@@ -34,9 +34,9 @@
                     <li class="header__item">
                         <a href="#!" class="header__link">About us</a>
                     </li>
-                    <li class="header__item">
-                        <a href="#!" class="header__link">Registration</a>
-                    </li>
+<%--                    <li class="header__item">--%>
+<%--                        <a href="#!" class="header__link">Log out</a>--%>
+<%--                    </li>--%>
                 </ul>
             </nav>
         </div>
