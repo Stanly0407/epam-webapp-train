@@ -1,6 +1,6 @@
 package com.epam.web.entities;
 
-public class User implements Entity{
+public class User extends Entity{
 
     public static final String TABLE = "user";
     public static final String ID = "id";
@@ -10,7 +10,6 @@ public class User implements Entity{
     public static final String LASTNAME= "lastname";
     public static final String ROLE= "role";
 
-    private Long id;
     private String login;
     private String password;
     private String name;
@@ -18,22 +17,18 @@ public class User implements Entity{
     private Role role;
 
     public User(Long id, String name) {
-        this.id = id;
+        super(id);
         this.name = name;
     }
 
-    public User(Long id, String login, String password, String name, String lastname, Role role) {
-        this.id = id;
+
+
+    public User(Long id, String login, String name, String lastname, Role role) {
+        super(id);
         this.login = login;
-        this.password = password;
         this.name = name;
         this.lastname = lastname;
         this.role = role;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
     }
 
     public String getLogin() {
@@ -79,8 +74,7 @@ public class User implements Entity{
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
+                "login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +

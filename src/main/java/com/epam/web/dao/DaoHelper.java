@@ -7,7 +7,6 @@ import com.epam.web.mapper.UserRowMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class DaoHelper implements AutoCloseable {
@@ -15,7 +14,7 @@ public class DaoHelper implements AutoCloseable {
 
     private ProxyConnection proxyConnection;
 
-    public DaoHelper(ConnectionPool connectionPool) throws DaoException, IOException, InterruptedException {
+    public DaoHelper(ConnectionPool connectionPool) throws InterruptedException {
         LOGGER.debug("  ++++ this.proxyConnection = connectionPool.getConnection();" + connectionPool.getConnection() );
         this.proxyConnection = connectionPool.getConnection();
     }
@@ -30,13 +29,11 @@ public class DaoHelper implements AutoCloseable {
 //        return new OrderDaoImpl(proxyConnection);
 //    }
 
-
     @Override
     public void close() throws DaoException {
         try {
             proxyConnection.close();
         } catch (SQLException e) {
-            LOGGER.debug("******************" + e.getMessage() + e.getSQLState());
             throw new DaoException(e);
         }
     }

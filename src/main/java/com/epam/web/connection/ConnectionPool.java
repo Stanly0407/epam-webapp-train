@@ -40,12 +40,13 @@ public class ConnectionPool {
 
     public ProxyConnection getConnection() throws InterruptedException {
         BlockingQueue<ProxyConnection> pool = getInstance().proxyConnections;
-        LOGGER.debug("getInstance().proxyConnections " + getInstance().proxyConnections);
+        LOGGER.debug("getConnection");
         return pool.take();
     }
 
-    public void closeConnection(ProxyConnection connection)  {
+    public void closeConnection(ProxyConnection connection)  { // returnConnection
         BlockingQueue<ProxyConnection> pool = getInstance().proxyConnections;
+        LOGGER.debug("closeConnection");
         pool.offer(connection);
     }
 

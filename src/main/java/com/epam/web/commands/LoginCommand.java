@@ -29,7 +29,7 @@ public class LoginCommand implements Command {
            LOGGER.debug("execute method start...");
         String login = request.getParameter(PARAMETER_LOGIN);
         String password = request.getParameter(PARAMETER_PASSWORD);
-        LOGGER.debug("parameters: login = " + login + ", password = " + password);
+
 
         Optional<User> optionalUser = userService.login(login, password);
         LOGGER.debug(" Optional<User> optionalUser = " + optionalUser);
@@ -39,7 +39,7 @@ public class LoginCommand implements Command {
         String name = request.getParameter("name");
 
         LOGGER.debug("optionalUser = " + optionalUser);
-
+        //session
         return CommandResult.redirect("/controller?command=mainPage");
     }
 

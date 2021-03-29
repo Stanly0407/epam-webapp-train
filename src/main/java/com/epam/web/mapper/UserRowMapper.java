@@ -15,11 +15,11 @@ public class UserRowMapper implements RowMapper<User> {
     public User map(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getLong(User.ID);
         String login = resultSet.getString(User.LOGIN);
-        String password = resultSet.getString(User.PASSWORD);
+  //      String password = resultSet.getString(User.PASSWORD);
         String name = resultSet.getString(User.NAME);
         String lastname = resultSet.getString(User.LASTNAME);
         String role = resultSet.getString(User.ROLE);
-        LOGGER.debug("map -- resultSet.next() ---- " + resultSet.next());
-        return new User(id, login, password, name, lastname, Role.valueOf(role));
+        LOGGER.debug(role);
+        return new User(id, login, name, lastname, Role.valueOf(role));
     }
 }

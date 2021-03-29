@@ -1,7 +1,8 @@
 package com.epam.web.entities;
 
 public enum Role {
-    ADMIN("admin"), USER("user");
+    ADMIN("ADMIN"),
+    USER("USER");
 
     private String value;
 
